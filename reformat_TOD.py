@@ -42,7 +42,7 @@ dirout = scratch_path+'/'+str(int(days)).zfill(2)+'days/'+str(int(fknee_mhz)).zf
 #dirdn = '/dss/dsshome1/05/di38wul/SCRATCH/out/cmb/' #FIXME: remove 
 #dirout = container_path                             #FIXME: remove
 
-filenameoutall_n = dirout+'/'+simnum+'_'+termin+'.bi'
+filenameoutall_n = dirout+'/data_'+termin+simnum+'.bi'
 fdataall_n = open(filenameoutall_n,'wb')
     
 iiall = 0
