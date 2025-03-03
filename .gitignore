@@ -1,7 +1,12 @@
 # ignore ALL .log files
 simulating_TOD_CMB-only.py
+validation/circularity.pdf
+validation/hist.pdf
+validation/oof_ps.pdf
+validation/submit_validation_LRZ.sl
+validation/validation.py
+validation/white_ps.pdf
 
 # ignore ALL files in ANY directory named temp
 input_maps/
 logs/
-validation/
