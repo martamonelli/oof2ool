@@ -19,5 +19,5 @@ export OMP_NUM_THREADS=1
 
 ### ARGUMENTS                                   spin_rate_rpm  realization    net_ukrts  fknee_mhz  alpha  days  ptg_only  tod_only
 for realization in {0..49}; do
-  srun python simulating_TOD_noise-only.py      0.05           $realization   50.        25.       2.     20.   0         1
+  srun python simulating_TOD_noise-only.py      0.05           $realization   50.        25.       2.     20.  
 done

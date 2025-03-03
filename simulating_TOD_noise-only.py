@@ -15,8 +15,11 @@ net_ukrts = float(sys.argv[3])
 fknee_mhz = float(sys.argv[4])
 alpha = float(sys.argv[5])
 days = float(sys.argv[6])
-ptg_only = bool(sys.argv[7])
-tod_only = bool(sys.argv[8])
+#ptg_only = bool(sys.argv[7])
+#tod_only = bool(sys.argv[8])
+
+ptg_only=False #FIXME
+tod_only=True  #FIXME
 
 if ptg_only == tod_only:
     print('one (and only one) between ptg_only and tod_only should be true!')
