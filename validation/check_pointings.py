@@ -21,22 +21,25 @@ pnt = hdul[1].data
 theta_005_450 = pnt['THETA']
 
 
-file_path = base_path + '/030rpm_450/pnt_0A_00000.fits'
-hdul = fits.open(file_path)
-pnt = hdul[1].data
-
-theta_030_450 = pnt['THETA']
-
-
 file_path = base_path + '/030rpm_375/pnt_0A_00000.fits'
 hdul = fits.open(file_path)
 pnt = hdul[1].data
 
 theta_030_375 = pnt['THETA']
 
-plt.plot(theta_005_450[:500], label='theta for 0.05rpm and 45.0deg')
-plt.plot(theta_030_450[:500], label='theta for 0.30rpm and 45.0deg')
-plt.plot(theta_030_375[:500], label='theta for 0.30rpm and 37.0deg')
+
+file_path = base_path + '/100rpm_260/pnt_0A_00000.fits'
+hdul = fits.open(file_path)
+pnt = hdul[1].data
+
+theta_100_260 = pnt['THETA']
+
+
+plt.plot(theta_005_450[:1000], label='0.05rpm and 45.0deg')
+plt.plot(theta_030_375[:1000], label='0.30rpm and 45.0deg')
+plt.plot(theta_100_260[:1000], label='0.30rpm and 37.0deg')
 plt.legend()
+plt.xlabel('samples')
+plt.ylabel('theta')
 plt.savefig('thetas.png')
 
