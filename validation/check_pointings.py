@@ -34,8 +34,11 @@ pnt = hdul[1].data
 
 theta_030_375 = pnt['THETA']
 
-plt.plot(theta_005_450[:100:6], label='theta for 0.05rpm and 45deg, stretched')
-plt.plot(theta_030_450[:100], label='theta for 0.30rpm and 45deg')
+samps_030 = np.arange(100)
+samps_005 = np.arange(600)/6
+
+plt.plot(samps_005, theta_005_450[:600], label='theta for 0.05rpm and 45deg, stretched')
+plt.plot(samps_030, theta_030_450[:100], label='theta for 0.30rpm and 45deg')
 plt.legend()
 plt.savefig('thetas.png')
 
