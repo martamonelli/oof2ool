@@ -46,7 +46,7 @@ psi_100_260 = pnt['PSI']
 
 ###
 
-nsamp = 10000
+nsamp = 50000
 
 plt.plot(theta_005_450[:nsamp], label='0.05rpm and 45.0deg')
 plt.plot(theta_030_375[:nsamp], label='0.30rpm and 37.5deg')
