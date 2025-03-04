@@ -18,8 +18,8 @@ days = float(sys.argv[6])
 #ptg_only = bool(sys.argv[7])
 #tod_only = bool(sys.argv[8])
 
-ptg_only=False #FIXME
-tod_only=True  #FIXME
+ptg_only=True #FIXME
+tod_only=False  #FIXME
 
 if ptg_only == tod_only:
     print('one (and only one) between ptg_only and tod_only should be true!')
@@ -27,10 +27,13 @@ if ptg_only == tod_only:
 
 if spin_rate_rpm == 0.05:
     spin_sun_angle_deg = 45.
+    delta_time_s = 60.            #lbs default
 elif spin_rate_rpm == 0.3:
-    spin_sun_angle_deg = 37.5
+    spin_sun_angle_deg = 37.5 
+    delta_time_s = 60./(0.3/0.05) #rescaled
 elif spin_rate_rpm == 1.:
     spin_sun_angle_deg = 26.
+    delta_time_s = 60./(1./0.05)  #rescaled
 else:
     print('spin_rate_rpm should be 0.05, 0.3 or 1.')
     quit()
@@ -68,7 +71,8 @@ sim.set_scanning_strategy(
         spin_sun_angle_rad=np.deg2rad(spin_sun_angle_deg),           #defined above
         spin_rate_hz=1.0 / (1/spin_rate_rpm * u.min).to("s").value,  #defined above
         precession_rate_hz=1.0 / (192.348 * u.min).to("s").value,    #nominal LB
-    )
+    ),
+    delta_time_s = delta_time_s #added
 )
 
 instr = lbs.InstrumentInfo(

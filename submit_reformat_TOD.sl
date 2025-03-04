@@ -14,6 +14,6 @@ module load slurm_setup
 
 ### ARGUMENTS                spin_rate_rpm  realization    net_ukrts  fknee_mhz  alpha  days
 for realization in {0..49}; do
-  python reformat_TOD.py     0.05           $realization   50.        50.        2.     20.
+  python reformat_TOD.py     0.05           $realization   50.        100.        2.     20.
 done
 
