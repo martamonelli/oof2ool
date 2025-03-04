@@ -79,9 +79,9 @@ plt.clf()
 
 nside = 256
 
-pix_005_450 = hp.ang2pix(nside,theta_005_450[:nsamp],phi_005_450[:nsamp])
-pix_030_375 = hp.ang2pix(nside,theta_030_375[:nsamp],phi_030_375[:nsamp])
-pix_100_260 = hp.ang2pix(nside,theta_100_260[:nsamp],phi_100_260[:nsamp])
+pix_005_450 = hp.ang2pix(nside,theta_005_450,phi_005_450)
+pix_030_375 = hp.ang2pix(nside,theta_030_375,phi_030_375)
+pix_100_260 = hp.ang2pix(nside,theta_100_260,phi_100_260)
 
 plt.plot(pix_005_450[:nsamp], label='0.05rpm and 45.0deg')
 plt.plot(pix_030_375[:nsamp], label='0.30rpm and 37.5deg')
