@@ -46,7 +46,7 @@ psi_100_260 = pnt['PSI']
 
 ###
 
-nsamp = 50000
+nsamp = 10000
 
 plt.plot(theta_005_450[:nsamp], label='0.05rpm and 45.0deg')
 plt.plot(theta_030_375[:nsamp], label='0.30rpm and 37.5deg')
@@ -92,6 +92,10 @@ plt.ylabel('pixel (nside=256)')
 plt.savefig('pixs.png')
 plt.clf()
 
+###
+
+nsamp = len(pix_005_450)
+
 hits_005_450 = np.zeros(hp.nside2npix(nside))
 hits_030_375 = np.zeros(hp.nside2npix(nside))
 hits_100_260 = np.zeros(hp.nside2npix(nside))
@@ -100,6 +104,10 @@ for i in np.arange(nsamp):
     hits_005_450[pix_005_450[i]] += 1
     hits_030_375[pix_030_375[i]] += 1
     hits_100_260[pix_100_260[i]] += 1
+
+hits_005_450[np.where(hits_005_450 == 0)] = hp.UNSEEN
+hits_030_375[np.where(hits_030_375 == 0)] = hp.UNSEEN
+hits_100_260[np.where(hits_100_260 == 0)] = hp.UNSEEN
 
 hp.mollview(hits_005_450, title='hits 0.05rpm')
 plt.savefig('hits_005.png')
