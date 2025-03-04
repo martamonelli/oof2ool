@@ -34,10 +34,11 @@ pnt = hdul[1].data
 
 theta_100_260 = pnt['THETA']
 
+nsamp = 2000
 
-plt.plot(theta_005_450[:1000], label='0.05rpm and 45.0deg')
-plt.plot(theta_030_375[:1000], label='0.30rpm and 45.0deg')
-plt.plot(theta_100_260[:1000], label='0.30rpm and 37.0deg')
+plt.plot(theta_005_450[:nsamp], label='0.05rpm and 45.0deg')
+plt.plot(theta_030_375[:nsamp], label='0.30rpm and 37.5deg')
+plt.plot(theta_100_260[:nsamp], label='1.00rpm and 26.0deg')
 plt.legend()
 plt.xlabel('samples')
 plt.ylabel('theta')
