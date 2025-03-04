@@ -77,9 +77,11 @@ plt.clf()
 
 ###
 
-pix_005_450 = hp.ang2pix(256,theta_005_450[:nsamp],phi_005_450[:nsamp])
-pix_030_375 = hp.ang2pix(256,theta_030_375[:nsamp],phi_030_375[:nsamp])
-pix_100_260 = hp.ang2pix(256,theta_100_260[:nsamp],phi_100_260[:nsamp])
+nside = 256
+
+pix_005_450 = hp.ang2pix(nside,theta_005_450[:nsamp],phi_005_450[:nsamp])
+pix_030_375 = hp.ang2pix(nside,theta_030_375[:nsamp],phi_030_375[:nsamp])
+pix_100_260 = hp.ang2pix(nside,theta_100_260[:nsamp],phi_100_260[:nsamp])
 
 plt.plot(pix_005_450[:nsamp], label='0.05rpm and 45.0deg')
 plt.plot(pix_030_375[:nsamp], label='0.30rpm and 37.5deg')
@@ -88,5 +90,26 @@ plt.legend()
 plt.xlabel('samples')
 plt.ylabel('pixel (nside=256)')
 plt.savefig('pixs.png')
+plt.clf()
+
+hits_005_450 = np.zeros(hp.nside2npix(nside))
+hits_030_375 = np.zeros(hp.nside2npix(nside))
+hits_100_260 = np.zeros(hp.nside2npix(nside))
+
+for i in np.arange(nsamp):
+    hits_005_450[pix_005_450[i]] += 1
+    hits_030_375[pix_030_375[i]] += 1
+    hits_100_260[pix_100_260[i]] += 1
+
+hp.mollview(hits_005_450, title='hits 0.05rpm')
+plt.savefig('hits_005.png')
+plt.clf()
+
+hp.mollview(hits_030_375, title='hits 0.30rpm')
+plt.savefig('hits_030.png')
+plt.clf()
+
+hp.mollview(hits_100_260, title='hits 1.00rpm')
+plt.savefig('hits_100.png')
 plt.clf()
 
