@@ -74,3 +74,19 @@ plt.xlabel('samples')
 plt.ylabel('psi')
 plt.savefig('psis.png')
 plt.clf()
+
+###
+
+pix_005_450 = hp.ang2pix(256,theta_005_450[:nsamp],phi_005_450[:nsamp])
+pix_030_375 = hp.ang2pix(256,theta_030_375[:nsamp],phi_030_375[:nsamp])
+pix_100_260 = hp.ang2pix(256,theta_100_260[:nsamp],phi_100_260[:nsamp])
+
+plt.plot(pix_005_450[:nsamp], label='0.05rpm and 45.0deg')
+plt.plot(pix_030_375[:nsamp], label='0.30rpm and 37.5deg')
+plt.plot(pix_100_260[:nsamp], label='1.00rpm and 26.0deg')
+plt.legend()
+plt.xlabel('samples')
+plt.ylabel('pixel (nside=256)')
+plt.savefig('pixs.png')
+plt.clf()
+
