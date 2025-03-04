@@ -34,11 +34,14 @@ pnt = hdul[1].data
 
 theta_030_375 = pnt['THETA']
 
-samps_030 = np.arange(100)
-samps_005 = np.arange(600)/6
+nsamp_030 = 500
+ratio = int(30/5)
 
-plt.plot(samps_005, theta_005_450[:600], label='theta for 0.05rpm and 45deg, stretched')
-plt.plot(samps_030, theta_030_450[:100], label='theta for 0.30rpm and 45deg')
+samps_030 = np.arange(nsamp_030)
+samps_005 = np.arange(nsamp_030*ratio)/ratio
+
+plt.plot(samps_005, theta_005_450[:nsamp_030*ratio], label='theta for 0.05rpm and 45deg, stretched')
+plt.plot(samps_030, theta_030_450[:nsamp_030], label='theta for 0.30rpm and 45deg')
 plt.legend()
 plt.savefig('thetas.png')
 
