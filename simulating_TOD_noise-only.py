@@ -147,7 +147,6 @@ if ptg_only:
 
 elif tod_only:
     tod_path = base_path+'/'+str(int(fknee_mhz)).zfill(3)+"mHz_"+str(int(alpha*10)).zfill(2)+'/'+str(realization).zfill(2) 
-
     # Iterate over all the maps we want to produce. For each of
     # them we specify the name of the subfolder where the Madam
     # files will be saved and the list of components to include
